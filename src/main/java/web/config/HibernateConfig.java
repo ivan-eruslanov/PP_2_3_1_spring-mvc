@@ -49,14 +49,14 @@ public class HibernateConfig {
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean bean
+        LocalContainerEntityManagerFactoryBean em
                 = new LocalContainerEntityManagerFactoryBean();
-        bean.setDataSource(getDataSource());
-        bean.setPackagesToScan("web.model");
+        em.setDataSource(getDataSource());
+        em.setPackagesToScan("web.model");
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        bean.setJpaVendorAdapter(vendorAdapter);
-        bean.setJpaProperties(getHibernateProperties());
-        return bean;
+        em.setJpaVendorAdapter(vendorAdapter);
+        em.setJpaProperties(getHibernateProperties());
+        return em;
     }
 
     @Bean
